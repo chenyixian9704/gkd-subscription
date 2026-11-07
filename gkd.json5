@@ -1,0 +1,40 @@
+// GKD 自定义订阅 - 国内 Gitee 直连
+// 修改规则后必须把 version 加 1，GKD 才会自动更新到新版
+{
+  id: 20261107,
+  name: 'GKD自定义订阅',
+  version: 1,
+  author: 'cyx970401',
+  supportUri: 'https://gitee.com/cyx970401/gkd-subscription',
+  globalGroups: [
+    {
+      key: 0,
+      name: '开屏广告-通用跳过',
+      desc: '启动 10 秒内点击「跳过」类按钮；每次启动最多执行 1 次；只匹配可见控件并限制文本长度，宁可漏杀不误杀',
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          key: 0,
+          name: '跳过（简体）',
+          fastQuery: true,
+          matches: '[text*="跳过"][text.length<10][visibleToUser=true]',
+        },
+        {
+          key: 1,
+          name: '跳過（繁体）',
+          fastQuery: true,
+          matches: '[text*="跳過"][text.length<10][visibleToUser=true]',
+        },
+        {
+          key: 2,
+          name: 'Skip（英文）',
+          fastQuery: true,
+          matches: '[text*="Skip"][text.length<8][visibleToUser=true]',
+        },
+      ],
+    },
+  ],
+  apps: [],
+}
